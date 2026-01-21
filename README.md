@@ -126,6 +126,7 @@ The application loads **demo users automatically** on startup for easy testing.
 ## 👨‍💻 Author
 
 **Sangwin Gawande**  
+https://samgw.in
 Full Stack Developer  
 - 11+ years of experience in Frontend & Backend development  
 - Expertise in Angular, JavaScript, TypeScript, Python, FastAPI, and SaaS applications  
