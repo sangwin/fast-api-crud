@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
+from fastapi.middleware.cors import CORSMiddleware
 
 # from app.routes import router
 from app.routers import users, auth
@@ -17,6 +18,14 @@ app = FastAPI(title="Sangwin's - FastAPI CRUD Boilerplate")
 
 # Register middleware
 app.middleware("http")(timing_middleware)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # "https://mydomain.com"
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # Routers
