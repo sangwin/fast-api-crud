@@ -32,6 +32,7 @@ This project is designed for learning FastAPI fundamentals with clean code struc
 
 ## 📁 Project Structure
 
+```
 fastapi-crud/
 ├── app/
 │   ├── main.py
@@ -49,6 +50,7 @@ fastapi-crud/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
 ---
 
