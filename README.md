@@ -7,43 +7,51 @@ This project is designed for learning FastAPI fundamentals with clean code struc
 
 ## 🚀 Features
 
-- Create a new user
-- Fetch all users
-- Fetch user by ID
-- Update user details
-- Delete a user
-- Auto-generated API documentation (Swagger UI)
-- Preloaded demo users for initial fetch
-- Clean, modular project structure
+- User CRUD operations (Create, Read)
+- JWT-based Authentication (OAuth2 Password Flow)
+- Password hashing using **Argon2**
+- Protected routes using dependency injection
+- Centralized error handling
+- Custom middleware for API timing
+- Structured **JSON logging** (console + file)
+- Auto-generated API documentation (Swagger & ReDoc)
+- Clean, scalable folder structure
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Python**
-- **FastAPI**
-- **Uvicorn**
-- **Pydantic**
+- Python
+- FastAPI
+- Uvicorn
+- Pydantic
+- Passlib (Argon2)
+- Python-JOSE (JWT)
 
 ---
 
 ## 📁 Project Structure
 
-```
 fastapi-crud/
-│
 ├── app/
-│   ├── main.py          # Application entry point
-│   ├── routes.py        # API routes (CRUD operations)
-│   ├── models.py        # Pydantic data models
-│   ├── database.py     # In-memory database with demo users
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── auth.py
+│   ├── middleware.py
+│   ├── logger.py
+│   ├── error_handler.py
+│   ├── routers/
+│   │   ├── auth.py
+│   │   └── users.py
 │   └── __init__.py
-│
+├── logs/
 ├── requirements.txt
+├── .gitignore
 └── README.md
-```
 
 ---
+
 
 ## ⚙️ Installation & Setup
 
@@ -96,15 +104,66 @@ FastAPI provides automatic interactive API docs:
 
 ## 📌 Sample Endpoints
 
-| Method | Endpoint           | Description            |
-|------|-------------------|------------------------|
-| POST | `/users`          | Create a new user      |
-| GET  | `/users`          | Get all users          |
-| GET  | `/users/{id}`     | Get user by ID         |
-| PUT  | `/users/{id}`     | Update user            |
-| DELETE | `/users/{id}`   | Delete user            |
+| Method | Endpoint      | Description           | Auth |
+| ------ | ------------- | --------------------- | ---- |
+| POST   | `/login`      | Login & get JWT token | ❌    |
+| POST   | `/users`      | Create user           | ❌    |
+| GET    | `/users`      | Get all users         | ✅    |
+| GET    | `/users/{id}` | Get user by ID        | ✅    |
 
 ---
+## 📊 Logging
+
+Logs are written in JSON format
+
+Logged to:
+
+Console
+
+logs/api_timing.log
+
+Includes:
+
+HTTP method
+
+Path
+
+Status code
+
+Start time
+
+End time
+
+Duration (ms)
+
+------
+
+## 🛡 Error Handling
+
+Centralized exception handlers
+
+Consistent JSON error responses
+
+No sensitive stack traces exposed
+
+Validation, auth, and server errors handled
+
+------
+
+## 🔮 Future Enhancements
+
+Database integration (PostgreSQL / SQLite)
+
+Async SQLAlchemy ORM
+
+Role-based access control (RBAC)
+
+Refresh tokens
+
+Rate limiting
+
+Docker & CI/CD support
+--
 
 ## 🧪 Demo Data
 
